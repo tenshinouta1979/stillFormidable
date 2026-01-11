@@ -293,8 +293,8 @@ function renderOpportunities() {
             </div>
             <div class="card-meta">
                 <span class="tag primary">${opp.type}</span>
-                <span class="tag">⏱️ ${opp.commitment}</span>
-                <span class="tag">📅 ${opp.duration}</span>
+                <span class="tag"><span aria-label="Time commitment">⏱️</span> ${opp.commitment}</span>
+                <span class="tag"><span aria-label="Duration">📅</span> ${opp.duration}</span>
             </div>
             <div class="card-meta">
                 ${opp.skills.map(skill => `<span class="tag">${skill}</span>`).join('')}
@@ -305,9 +305,10 @@ function renderOpportunities() {
 
 function renderProfessionals() {
     const container = document.getElementById('professionals-list');
+    const expertiseFilter = state.filters.professionals.expertise.toLowerCase();
     const filtered = data.professionals.filter(prof => {
-        const expertiseMatch = state.filters.professionals.expertise === 'all' || 
-                              prof.expertise.toLowerCase() === state.filters.professionals.expertise.toLowerCase();
+        const expertiseMatch = expertiseFilter === 'all' || 
+                              prof.expertise.toLowerCase() === expertiseFilter;
         const searchMatch = state.filters.professionals.search === '' ||
                           prof.name.toLowerCase().includes(state.filters.professionals.search) ||
                           prof.title.toLowerCase().includes(state.filters.professionals.search) ||
@@ -334,7 +335,7 @@ function renderProfessionals() {
             <div class="card-content">
                 <p class="bio">${prof.bio}</p>
                 <div class="years-experience">
-                    ⭐ ${prof.yearsExperience} years of experience
+                    <span aria-label="Experience">⭐</span> ${prof.yearsExperience} years of experience
                 </div>
             </div>
             <div class="card-meta">
@@ -363,7 +364,7 @@ function renderQuests() {
                     <div class="progress-fill" style="width: ${quest.progress}%"></div>
                 </div>
                 <div class="participants">
-                    👥 ${quest.participants} professionals participating · ${quest.progress}% complete
+                    <span aria-label="Participants">👥</span> ${quest.participants} professionals participating · ${quest.progress}% complete
                 </div>
             </div>
             <div class="card-meta">

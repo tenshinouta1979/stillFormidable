@@ -184,6 +184,12 @@ main {
     border-color: var(--primary-color);
 }
 
+.card:focus-within {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+    border-color: var(--primary-color);
+}
+
 .card-header {
     margin-bottom: 15px;
 }
