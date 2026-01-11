@@ -1,10 +1,14 @@
 const pool = require('../db');
 
-async function setupTestDatabase() {
-  // Clean up existing data
+async function cleanupTestData() {
+  // Clean up data in correct order (respecting foreign keys)
   await pool.query('DELETE FROM quest_acceptances');
   await pool.query('DELETE FROM quests');
   await pool.query('DELETE FROM members');
+}
+
+async function setupTestDatabase() {
+  await cleanupTestData();
   
   // Reset sequences
   await pool.query('ALTER SEQUENCE members_id_seq RESTART WITH 1');
@@ -13,10 +17,7 @@ async function setupTestDatabase() {
 }
 
 async function teardownTestDatabase() {
-  // Clean up test data
-  await pool.query('DELETE FROM quest_acceptances');
-  await pool.query('DELETE FROM quests');
-  await pool.query('DELETE FROM members');
+  await cleanupTestData();
 }
 
 module.exports = {
