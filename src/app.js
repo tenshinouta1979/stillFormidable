@@ -1,4 +1,5 @@
 const express = require('express');
+const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
 const membersRouter = require('./routes/members');
@@ -6,6 +7,18 @@ const questsRouter = require('./routes/quests');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Rate limiting middleware
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per windowMs
+  message: 'Too many requests from this IP, please try again later.',
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+// Apply rate limiter to all routes
+app.use(limiter);
 
 // Middleware
 app.use(express.json());
