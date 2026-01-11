@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Still Formidable - Bulletin Board</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Still Formidable</h1>
+            <p class="tagline">A lifetime of mastery doesn't fade. Connect with retired professionals ready to make an impact.</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <button class="nav-btn active" data-section="opportunities">Opportunities</button>
+            <button class="nav-btn" data-section="professionals">Professionals</button>
+            <button class="nav-btn" data-section="quests">Community Quests</button>
+            <button class="nav-btn" data-section="about">About</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Opportunities Section -->
+        <section id="opportunities" class="content-section active">
+            <div class="section-header">
+                <h2>Opportunities</h2>
+                <div class="filters">
+                    <select id="opportunity-filter">
+                        <option value="all">All Types</option>
+                        <option value="mentorship">Mentorship</option>
+                        <option value="consulting">Consulting</option>
+                        <option value="advisory">Advisory</option>
+                        <option value="speaking">Speaking</option>
+                    </select>
+                    <input type="text" id="opportunity-search" placeholder="Search opportunities...">
+                </div>
+            </div>
+            <div id="opportunities-list" class="card-grid"></div>
+        </section>
+
+        <!-- Professionals Section -->
+        <section id="professionals" class="content-section">
+            <div class="section-header">
+                <h2>Professionals</h2>
+                <div class="filters">
+                    <select id="professional-filter">
+                        <option value="all">All Expertise</option>
+                        <option value="technology">Technology</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="education">Education</option>
+                        <option value="business">Business</option>
+                        <option value="legal">Legal</option>
+                        <option value="engineering">Engineering</option>
+                    </select>
+                    <input type="text" id="professional-search" placeholder="Search professionals...">
+                </div>
+            </div>
+            <div id="professionals-list" class="card-grid"></div>
+        </section>
+
+        <!-- Community Quests Section -->
+        <section id="quests" class="content-section">
+            <div class="section-header">
+                <h2>Community Quests</h2>
+                <p class="section-description">Community-driven initiatives where expertise meets opportunity</p>
+            </div>
+            <div id="quests-list" class="card-grid"></div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="content-section">
+            <div class="about-content">
+                <h2>About Still Formidable</h2>
+                <p>Still Formidable is a bulletin board connecting retired but highly skilled professionals—especially from POC communities—with meaningful opportunities.</p>
+                
+                <h3>Our Mission</h3>
+                <p>We highlight enduring mastery and lived experience, offering a space where expertise continues to make an impact through mentorship, consulting, and community-driven quests.</p>
+                
+                <h3>What We Offer</h3>
+                <ul>
+                    <li><strong>Mentorship Opportunities:</strong> Share your knowledge with the next generation</li>
+                    <li><strong>Consulting Engagements:</strong> Apply your expertise to solve real-world challenges</li>
+                    <li><strong>Community Quests:</strong> Collaborate on initiatives that matter to your community</li>
+                    <li><strong>Advisory Roles:</strong> Guide organizations with your strategic insights</li>
+                </ul>
+
+                <h3>Why POC Communities Matter</h3>
+                <p>We recognize that professionals from People of Color communities bring unique perspectives, experiences, and expertise that are invaluable to creating inclusive and effective solutions. Still Formidable is committed to elevating these voices and ensuring their continued impact.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Still Formidable. A lifetime of mastery doesn't fade.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
